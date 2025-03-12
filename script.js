@@ -1,4 +1,4 @@
-//Claculator
+//Calculator
 
 function addNum(a, b) {
     return a + b;
@@ -38,4 +38,19 @@ function operate(operator, num1, num2) {
     }
 }
 
-console.log(operate('/', 8, 5))
+const display = document.querySelector('#display')
+const buttons = document.getElementsByClassName('btn')
+const digitArray = Array.from(buttons)
+
+function displayNum (arr) {
+    for (let i = 0; i < arr.length; i++) {
+        document.getElementById(`${arr[i].id}`).addEventListener('click', () => {
+            display.textContent = arr[i].textContent;
+            inputOne = display.textContent;
+            console.log(inputOne)
+        }) 
+    } 
+    
+}
+
+displayNum(digitArray)
